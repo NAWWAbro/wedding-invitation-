@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kavishka &amp; Samindya | Wedding Invitation</title>
+  
+  <!-- SEO & OpenGraph Meta Tags -->
+  <meta name="description" content="Wedding celebration of Kavishka &amp; Samindya. Wednesday, January 20, 2027 at Saru Blue Sapphire Hotel, Godakawela.">
+  <meta property="og:title" content="Kavishka &amp; Samindya | Wedding Invitation">
+  <meta property="og:description" content="With hearts full of love, together with their parents, Kavishka and Samindya request the honour of your presence.">
+  
+  <!-- Google Fonts: Playball, Cinzel, and Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Playball&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+  <script type="module" crossorigin src="./assets/index-B_vIsjEP.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-pcMwuH7Q.css">
+</head>
+<body class="site-body">
+
+  <!-- =========================================================================
+       1. CINEMATIC FULLSCREEN INTRO VIDEO ENTRY STAGE
+       ========================================================================= -->
+  <div id="video-intro-stage" class="video-intro-stage">
+    <!-- Fullscreen Video Element -->
+    <video id="intro-video" class="intro-video blurred" playsinline preload="auto">
+      <source src="./intro_video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Initial State Overlay (Before user clicks View Invitation) -->
+    <div id="intro-start-overlay" class="intro-start-overlay">
+      <div class="intro-start-content">
+        <h2 class="intro-tagline">The Wedding of</h2>
+        
+        <div class="intro-couple-names">
+          <span class="intro-name">Kavishka</span>
+          <span class="intro-amp">&amp;</span>
+          <span class="intro-name">Samindya</span>
+        </div>
+
+        <!-- Dynamic Guest Greeting on Video Entry -->
+        <div class="intro-guest-callout" id="intro-guest-callout">
+          <span class="intro-to-label">Cordially Invited</span>
+          <h3 class="intro-guest-name" id="intro-guest-name">Valued Guest</h3>
+        </div>
+
+        <button id="view-invitation-btn" class="view-invitation-btn">
+          <div class="btn-shimmer"></div>
+          <span class="btn-text">View Invitation</span>
+        </button>
+        
+        <p class="intro-click-hint">Click to begin</p>
+      </div>
+    </div>
+
+    <!-- Active Video Playing Overlay (When video is playing in full HD quality) -->
+    <div id="intro-playing-overlay" class="intro-playing-overlay hidden">
+      <div class="intro-title-reveal">
+        <h2 class="reveal-wedding-title">Wedding Invitation</h2>
+        <div class="reveal-line"></div>
+        <div class="reveal-names">Kavishka &amp; Samindya</div>
+      </div>
+      <button id="skip-intro-btn" class="skip-intro-btn">Skip Intro ➔</button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. AMBIENT BACKGROUND AUDIO & CONTROLLER WIDGET
+       ========================================================================= -->
+  <audio id="wedding-audio" loop preload="auto">
+    <source id="audio-source" src="./Ed Sheeran - Perfect (Karaoke).mp3" type="audio/mpeg">
+  </audio>
+
+  <aside class="audio-control-bar" id="audio-controls" aria-label="Audio Controls">
+    <button id="audio-toggle-btn" class="audio-btn" title="Toggle Music" aria-label="Toggle Music">
+      <div class="audio-waves" id="audio-waves">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span id="audio-btn-icon">🎵</span>
+      <span class="audio-text" id="audio-btn-label">Music: Playing</span>
+    </button>
+  </aside>
+
+  <!-- =========================================================================
+       3. FLOATING PETALS CANVAS
+       ========================================================================= -->
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- =========================================================================
+       4. MAIN WEBSITE STAGE
+       ========================================================================= -->
+  <div id="website-stage" class="website-stage-hidden">
+    
+    <!-- Botanical Corner Accents from Original App -->
+    <img src="./images/44.png" alt="" class="botanical-corner top-right" aria-hidden="true">
+    <img src="./images/f.png" alt="" class="botanical-corner bottom-left" aria-hidden="true">
+
+    <main class="invitation-container" id="main-content">
+      
+      <!-- HERO HEADER -->
+      <header class="hero-section">
+        <div class="hero-ornament-wrap">
+          <span class="ornament-script">With hearts full of love, together with their parents</span>
+        </div>
+
+        <h1 class="couple-title" id="hero-couple-names">Kavishka &amp; Samindya</h1>
+        
+        <p class="blessing-quote" id="hero-invitation-text">
+          request the honour of the presence of
+        </p>
+
+        <!-- Personalized Guest Badge Banner -->
+        <section class="personalized-banner" id="guest-badge-section">
+          <span class="badge-subtitle">SPECIALLY INVITED</span>
+          <h2 class="badge-guest-name" id="hero-guest-name">Distinguished Guests</h2>
+          <p class="badge-note">to join them in celebrating the joy of their marriage</p>
+        </section>
+
+        <!-- Key Date & Place Pill -->
+        <div class="hero-date-pill">
+          <span class="date-icon">🗓️</span>
+          <span id="hero-date-str">Wednesday, January 20, 2027</span>
+          <span class="separator">•</span>
+          <span id="hero-time-str">8:00 AM</span>
+          <span class="separator">•</span>
+          <span id="hero-venue-summary">Saru Blue Sapphire Hotel</span>
+        </div>
+
+        <div class="hero-reception-tag">
+          <span>✨ Reception to follow ✨</span>
+        </div>
+
+        <a href="#countdown-section" class="scroll-down-indicator" aria-label="Scroll down">
+          <span>Explore Details</span>
+          <div class="chevron-down"></div>
+        </a>
+      </header>
+
+      <!-- SAVE THE DATE / COUNTDOWN SECTION -->
+      <section class="section-container countdown-section dark-save-date-section" id="countdown-section">
+        <div class="watermark-eternity" aria-hidden="true">Eternity</div>
+        
+        <div class="section-header relative-z">
+          <div class="save-date-line"></div>
+          <h2 class="save-the-date-title">SAVE <span class="highlight-the">THE</span> DATE</h2>
+          
+          <div class="numeric-date-divider">
+            <span class="date-line-decor"></span>
+            <span class="numeric-date-txt">20 . 01 . 2027</span>
+            <span class="date-line-decor"></span>
+          </div>
+        </div>
+
+        <div class="countdown-grid relative-z" id="countdown-grid">
+          <div class="countdown-box">
+            <span class="time-val" id="days-val">00</span>
+            <span class="time-label">DAYS</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-box">
+            <span class="time-val" id="hours-val">00</span>
+            <span class="time-label">HOURS</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-box">
+            <span class="time-val" id="mins-val">00</span>
+            <span class="time-label">MINUTES</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-box">
+            <span class="time-val" id="secs-val">00</span>
+            <span class="time-label">SECONDS</span>
+          </div>
+        </div>
+        
+        <div class="auspicious-time-box relative-z">
+          <span class="poruwa-star">⭐</span>
+          <span>Wedding Ceremony at <strong id="poruwa-time-str">8:00 AM</strong> (At eight o'clock in the morning)</span>
+        </div>
+
+        <div class="wait-for-magic relative-z">
+          <p>Wait for the magic</p>
+          <div class="magic-sparkles">
+            <span>◆</span><span>◆</span><span>◆</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CEREMONY & VENUE HIGHLIGHT -->
+      <section class="section-container event-details-section">
+        <div class="event-cards-grid">
+          <div class="event-card">
+            <div class="event-icon-circle">💍</div>
+            <span class="event-badge">CEREMONY</span>
+            <h3 class="event-name">Poruwa Ceremony</h3>
+            <p class="event-time">08:00 AM Morning</p>
+            <p class="event-desc">Sacred rites, vows, and auspicious blessings as we unite our hearts.</p>
+          </div>
+
+          <div class="event-card">
+            <div class="event-icon-circle">🥂</div>
+            <span class="event-badge">CELEBRATION</span>
+            <h3 class="event-name">Grand Reception</h3>
+            <p class="event-time">Reception to follow</p>
+            <p class="event-desc">Join us for a lavish celebration feast, music, and joyful dancing.</p>
+          </div>
+
+          <div class="event-card">
+            <div class="event-icon-circle">📍</div>
+            <span class="event-badge">LOCATION</span>
+            <h3 class="event-name">Saru Blue Sapphire Hotel</h3>
+            <p class="event-time">Kosnathora, Godakawela</p>
+            <p class="event-desc">Sri Lanka</p>
+            <a href="https://maps.google.com/?q=Saru+Blue+Sapphire+Hotel+Godakawela" target="_blank" rel="noopener noreferrer" class="event-map-link">
+              <span>🗺️</span> Open Google Maps
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- VENUE & LOCATION MAP -->
+      <section class="section-container venue-section" id="venue-section">
+        <div class="section-header">
+          <span class="section-tag">VENUE &amp; LOCATION</span>
+          <h2 class="section-title">The Grand Celebration</h2>
+          <div class="golden-divider"><span>❦</span></div>
+        </div>
+
+        <div class="venue-card-layout">
+          <div class="venue-info-box">
+            <div class="venue-badge">LOCATION</div>
+            <h3 class="venue-name" id="venue-name-val">Saru Blue Sapphire Hotel</h3>
+            <p class="venue-hall" id="venue-hall-val">Grand Banquet Hall</p>
+            <p class="venue-address" id="venue-address-val">Kosnathora, Godakawela, Sri Lanka</p>
+            
+            <div class="venue-action-buttons">
+              <a id="google-maps-btn" href="https://maps.google.com/?q=Saru+Blue+Sapphire+Hotel+Godakawela" target="_blank" rel="noopener noreferrer" class="primary-btn">
+                <span>📍</span> Open in Google Maps
+              </a>
+              <button id="copy-address-btn" class="secondary-btn">
+                <span>📋</span> Copy Address
+              </button>
+            </div>
+
+            <div class="dress-code-box">
+              <h4>👗 Dress Code &amp; Palette</h4>
+              <p id="dress-code-title">Formal / Traditional Elegance</p>
+              <p class="dress-sub" id="dress-code-desc">Botanical greens, sage, soft ivory, champagne, or traditional elegance</p>
+              <div class="color-palette-swatches" id="palette-swatches">
+                <!-- Swatches generated from config -->
+              </div>
+            </div>
+          </div>
+
+          <div class="venue-map-box">
+            <iframe 
+              id="venue-map-iframe" 
+              title="Venue Location Map"
+              src="https://maps.google.com/maps?q=Saru%20Blue%20Sapphire%20Hotel%20Godakawela&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- PHOTO GALLERY -->
+      <section class="section-container gallery-section" id="gallery-section">
+        <div class="section-header">
+          <span class="section-tag">CAPTURED MOMENTS</span>
+          <h2 class="section-title">Our Love in Frames</h2>
+          <div class="golden-divider"><span>❦</span></div>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Gallery cards populated from config -->
+        </div>
+      </section>
+
+      <!-- RSVP SECTION -->
+      <section class="section-container rsvp-section" id="rsvp-section">
+        <div class="section-header">
+          <span class="section-tag">PLEASE RESPOND</span>
+          <h2 class="section-title">Will You Join Us?</h2>
+          <p class="section-sub">Kindly RSVP by <strong id="rsvp-deadline-str">December 31, 2026</strong> so we may reserve your seats</p>
+          <div class="golden-divider"><span>❦</span></div>
+        </div>
+
+        <div class="rsvp-card-wrapper">
+          <form id="rsvp-form" class="rsvp-form">
+            <div class="form-row">
+              <label for="rsvp-guest-name">Your Full Name(s) *</label>
+              <input type="text" id="rsvp-guest-name" name="guestName" required placeholder="e.g. Mr. & Mrs. Hettiarachchi">
+            </div>
+
+            <div class="form-row">
+              <label for="rsvp-phone">Phone Number / WhatsApp</label>
+              <input type="tel" id="rsvp-phone" name="phone" placeholder="+94 77 123 4567">
+            </div>
+
+            <div class="form-row">
+              <label>Attendance Status *</label>
+              <div class="attendance-radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="attendance" value="attending" checked>
+                  <span class="radio-custom"></span>
+                  <span class="radio-text">🎉 Delighted to Attend!</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="attendance" value="declined">
+                  <span class="radio-custom"></span>
+                  <span class="radio-text">💌 Sadly Unable to Attend</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-row" id="guest-count-container">
+              <label for="rsvp-guest-count">Total Guests Attending</label>
+              <select id="rsvp-guest-count" name="guestCount">
+                <option value="1">1 Person</option>
+                <option value="2" selected>2 Persons</option>
+                <option value="3">3 Persons</option>
+                <option value="4">4 Persons</option>
+                <option value="5+">5+ Persons (Family)</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="rsvp-notes">Wishes or Dietary Notes (Optional)</label>
+              <textarea id="rsvp-notes" name="notes" rows="3" placeholder="Warmest congratulations to Kavishka & Samindya!"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="primary-btn submit-btn">
+                <span>💌</span> Submit RSVP Confirmation
+              </button>
+              <button type="button" id="whatsapp-rsvp-btn" class="whatsapp-btn">
+                <span>💬</span> Confirm via WhatsApp
+              </button>
+            </div>
+
+            <div id="rsvp-status-alert" class="status-alert hidden" role="alert"></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- WISHES / GUESTBOOK WALL -->
+      <section class="section-container wishes-section" id="wishes-section">
+        <div class="section-header">
+          <span class="section-tag">GUESTBOOK</span>
+          <h2 class="section-title">Best Wishes</h2>
+          <p class="section-sub">Your love and presence are the greatest gifts. If you wish to leave a note, we'd be honored.</p>
+          <div class="golden-divider"><span>❦</span></div>
+        </div>
+
+        <div class="wishes-grid" id="wishes-wall">
+          <!-- Dynamic guest wishes appear here -->
+        </div>
+      </section>
+
+      <!-- HOST TOOL: PERSONALIZED LINK GENERATOR -->
+      <section class="section-container generator-tool-section">
+        <details class="generator-details">
+          <summary class="generator-summary">
+            <span>🔗 Host Utility: Generate Guest Invitation Links</span>
+          </summary>
+          <div class="generator-body">
+            <p>Easily create personalized wedding invitation links with custom prefix and names for each family or guest:</p>
+            <div class="gen-form-grid">
+              <div class="form-row">
+                <label for="gen-prefix">Prefix / Title</label>
+                <input type="text" id="gen-prefix" value="Mr. & Mrs." placeholder="e.g. Mr. & Mrs., Dr., Hon.">
+              </div>
+              <div class="form-row">
+                <label for="gen-name">Guest / Family Name</label>
+                <input type="text" id="gen-name" value="Hettiarachchi" placeholder="e.g. Perera, Silva, John Doe">
+              </div>
+            </div>
+            <div class="gen-output-row">
+              <input type="text" id="gen-result-link" readonly value="">
+              <button type="button" id="copy-gen-link-btn" class="secondary-btn">Copy Link</button>
+              <button type="button" id="whatsapp-share-btn" class="whatsapp-btn">Share via WhatsApp</button>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="wedding-footer">
+        <div class="footer-monogram" id="footer-monogram">K &amp; S</div>
+        <h3 class="footer-names" id="footer-names">Kavishka &amp; Samindya</h3>
+        <p class="footer-hashtag" id="footer-hashtag">#KavishkaWedsSamindya2027</p>
+        <p class="footer-thanks">We look forward to celebrating with you.</p>
+        <div class="footer-copyright">
+          © 2027 Kavishka &amp; Samindya • Powered by Antigravity
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Lightbox Modal for Photo Gallery -->
+  <dialog id="gallery-lightbox" class="lightbox-modal">
+    <div class="lightbox-content">
+      <button id="close-lightbox" class="close-lightbox-btn" aria-label="Close Preview">&times;</button>
+      <img id="lightbox-img" src="" alt="Enlarged photo preview">
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+  </dialog>
+
+  <!-- Script Module -->
+</body>
+</html>
